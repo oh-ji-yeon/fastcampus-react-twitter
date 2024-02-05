@@ -1,12 +1,11 @@
-import HomePage from 'pages/home';
-import './App.css';
-
-import { Route, Routes, Navigate } from 'react-router-dom';
 import Router from 'components/Router';
+import { Layout } from 'components/Layout';
 
 function App() {
   return (
-    <Router />
+    <Layout>
+      <Router />
+    </Layout>
   );
 }
 
