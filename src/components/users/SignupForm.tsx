@@ -94,7 +94,7 @@ export default function SignupForm() {
                 <Link to="/login" className="form__link">로그인하기</Link>
             </div>
             <div className="form__block">
-                <button type="submit" className="form__btn-submit" disabled={error?.length > 0}>회원가입</button>
+                <button type="submit" className="form__btn--submit" disabled={error?.length > 0}>회원가입</button>
             </div>
         </form>
     );
