@@ -179,6 +179,19 @@ body {
 
 // post layout
 .post {
+  &__header {
+    button {
+      border: none;
+      padding: 16px;
+    }
+
+    &-btn {
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+    }
+  }
+
   &__no-posts {
     padding: 16px;
 
