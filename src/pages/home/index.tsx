@@ -16,6 +16,7 @@ export interface PostProps {
     likes?: string[];
     likeCount?: number;
     comments?: any;
+    hashTags?: string[];
 }
 
 export default function HomePage() {
@@ -25,7 +26,7 @@ export default function HomePage() {
     useEffect(() => {
         if(user) {
             let postRef = collection(db, "posts"); //firestore에 posts 컬렉션을 가져와!
-            let postQuer = query(postRef, orderBy("createdAt", "desc"));
+            let postQuer = query(postRef, orderBy("createdAt", "asc"));
 
             onSnapshot(postQuer, (snapShot) => {
                 let dataObj = snapShot.docs.map((doc) => ({
