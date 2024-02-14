@@ -51,7 +51,6 @@ export default function PostForm() {
             }
 
             // 업로드된 이미지의 download url 업데이트
-
             await addDoc(collection(db, "posts"), {
                 content: content,
                 createdAt: new Date()?.toLocaleDateString("ko", {
