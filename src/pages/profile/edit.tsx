@@ -9,6 +9,8 @@ import { updateProfile } from "firebase/auth";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
+const STROAGE_DOWNLOAD_URL_STR = "https://firebasestorage.googleapis.com"; // 이미지 URL 생성
+
 export default function ProfileEdit() {
     const [displayName, setDisplayName] = useState<string>("");
     const [imageUrl, setImageUrl] = useState<string | null>(null);
@@ -33,13 +35,17 @@ export default function ProfileEdit() {
         e.preventDefault();
 
         try {
-            // 기존 이미지 삭제
-            // if(user?.photoURL) {
-            //     const imageRef = ref(storage, user?.photoURL);
-            //     await deleteObject(imageRef).catch((error) => {
-            //         console.log(error);
-            //     });
-            // }
+            // 기존 user 이미지가 firebase storage 이미지일 경우에만 이미지 삭제
+            if(user?.photoURL && user?.photoURL?.includes(STROAGE_DOWNLOAD_URL_STR)) {
+                const imageRef = ref(storage, user?.photoURL);
+                // console.log(imageRef);
+
+                if(imageRef) {
+                    await deleteObject(imageRef).catch((error) => {
+                        console.log(error);
+                    });
+                }  
+            }
 
             // 이미지 업로드
             if(imageUrl) {
