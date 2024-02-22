@@ -23,7 +23,7 @@ export default function FollowingBox({ post }: FollowingProps) {
         try{
             if(user?.uid) {
                 // 내가 주체가 되어 '팔로잉' 컬렉션 생성 or 업데이트
-                const followingRef = doc(db, "follwing", user?.uid);
+                const followingRef = doc(db, "following", user?.uid);
 
                 await setDoc(followingRef, {
                     users: arrayUnion({ id: post?.uid }), // post uid 기준으로 follow
@@ -52,7 +52,7 @@ export default function FollowingBox({ post }: FollowingProps) {
 
         try{
             if(user?.uid) {
-                const followingRef = doc(db, "follwing", user?.uid);
+                const followingRef = doc(db, "following", user?.uid);
                 await updateDoc(followingRef, {
                     users: arrayRemove({ id: post?.uid }),
                 });
