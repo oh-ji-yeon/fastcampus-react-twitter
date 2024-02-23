@@ -1,0 +1,42 @@
+$background: #1e293b;
+$activeBg: #3c495f5f;
+$white: #ffffff;
+$backgroundLight: #263340;
+$border: #708090;
+$primaryColor: #60a5fa;
+$activeBorder: #3b82f6;
+$grayText: #9ca3af;
+$danger: #dc2626;
+$dangerDark: #dc26268e;
+$gray: #6b7280;
+$grayDark: #4c515b;
+
+.notification {
+    padding: 8px 16px;
+    border-bottom: 1px solid $border;
+    cursor: pointer;
+    font-size: 14px;
+
+    &:hover {
+        font-weight: 600;
+    }
+
+    &__flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__createdAt {
+        color: $grayText;
+        font-size: 12px;
+        margin-bottom: 4px;
+    }
+
+    &__unread {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: $primaryColor;
+    }
+}

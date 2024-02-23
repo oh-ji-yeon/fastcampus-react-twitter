@@ -70,7 +70,7 @@ export default function LoginForm() {
         await signInWithPopup(
             auth, 
             provider as GithubAuthProvider | GithubAuthProvider).then((result) => {
-                console.log(result);
+                // console.log(result);
                 toast.success("로그인 되었습니다.");
             }).catch((error) => {
                 console.log(error);
