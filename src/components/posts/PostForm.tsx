@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import AuthContext from "context/AuthContext";
 import { v4 as uuidv4 } from "uuid";
 import { getDownloadURL, ref, uploadString } from "firebase/storage";
+import useTranslation from "hooks/useTranslation";
 
 export default function PostForm() {
     const [content, setContent] = useState<string>("");
@@ -14,6 +15,7 @@ export default function PostForm() {
     const [imageFile, setImageFile] = useState<string | null>(null);
     const [tags, setTags] = useState<string[]>([]);
     const { user } = useContext(AuthContext);
+    const t = useTranslation();
 
     const handleFileUpload = (e: any) => {
         const {
@@ -115,7 +117,7 @@ export default function PostForm() {
                 <textarea className="post-form__textarea" 
                 required name="content" 
                 id="content" 
-                placeholder="what is happening?" 
+                placeholder={t("POST_PLACEHOLDER")} 
                 onChange={onChange}
                 value={content} />
                 <div className="post-form__hashtags">
@@ -129,7 +131,7 @@ export default function PostForm() {
                     className="post-form__input" 
                     name="hashtag" 
                     id="hashtag" 
-                    placeholder="해시태그 + 스페이스바 입력"
+                    placeholder={t("POST_HASHTAG")}
                     onChange={onChangeHashTag}
                     onKeyUp={handleKeyUp}
                     value={hashTag} />
@@ -149,7 +151,9 @@ export default function PostForm() {
                         {imageFile && (
                             <div className="psot-form__attachment">
                                 <img src={imageFile} alt="attachment" width={100} height={100} />
-                                <button className="post-form__clear-btn" type="button" onClick={handleDeleteImage}>Clear</button>
+                                <button className="post-form__clear-btn" type="button" onClick={handleDeleteImage}>
+                                    {t("BUTTON_DELETE")}
+                                </button>
                             </div>
                         )}
                     </div>
