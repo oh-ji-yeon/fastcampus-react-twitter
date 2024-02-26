@@ -1,19 +1,4 @@
-$background: #1e293b;
-$activeBg: #3c495f5f;
-$white: #ffffff;
-$backgroundLight: #263340;
-$border: #708090;
-$primaryColor: #60a5fa;
-$activeBorder: #3b82f6;
-$grayText: #9ca3af;
-$danger: #dc2626;
-$dangerDark: #dc26268e;
-$gray: #6b7280;
-$grayDark: #4c515b;
-
-$font: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-sans-serif;
+@import "./utils";
 
 // 전체 레이아웃
 body {
@@ -83,6 +68,10 @@ body {
     grid-template-columns: repeat(5, minmax(0, 1fr));
     background-color: transparent;
 
+    &--text {
+      background-color: transparent;
+    }
+
     button {
       border: none;
       display: flex;
@@ -99,6 +88,52 @@ body {
         backdrop-filter: blur(10px);
       }
     }
+  }
+}
+
+@include xsMobile {
+  .footer {
+    display: none;
+  }
+
+  .layout {
+    border: none;
+  }
+}
+
+@include mobile {
+  .footer {
+    &__grid {
+      &--text {
+        display: none;
+      }
+
+      button {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .layout {
+    border: none;
+  }
+}
+
+@include tablet {
+  .footer {
+    &__grid {
+      &--text {
+        display: none;
+      }
+
+      button {
+        font-size: 24px;
+      }
+    }
+  }
+
+  .layout {
+    border: none;
   }
 }
 
@@ -119,11 +154,11 @@ body {
     font-size: 15px;
     font-weight: 600;
 
-      &:focus {
-        border: 1px solid $primaryColor;
-        background-color: $activeBg;
-      }
+    &:focus {
+      border: 1px solid $primaryColor;
+      background-color: $activeBg;
     }
+  }
 
   &__top {
     @extend .transparent;
@@ -157,7 +192,8 @@ body {
       border-bottom: 2px solid $activeBorder;
     }
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       background-color: $activeBg;
     }
   }
@@ -174,7 +210,8 @@ body {
       width: 100%;
       margin-bottom: 20px;
 
-      &:active, &:focus {
+      &:active,
+      &:focus {
         border-bottom: 1px solid $white;
       }
     }
@@ -197,7 +234,8 @@ body {
     padding: 0.2rem 0.8rem;
     background-color: $danger;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       background-color: $dangerDark;
     }
   }
@@ -232,7 +270,8 @@ body {
       margin-right: 6px;
       cursor: pointer;
 
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         color: $activeBorder;
         border: 1px solid $activeBorder;
       }
@@ -289,7 +328,7 @@ body {
   &__image-div {
     padding: 16px;
   }
-  
+
   &__header {
     button {
       border: none;
@@ -333,7 +372,8 @@ body {
     background-color: $white;
     color: $activeBorder;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       background-color: $activeBorder;
       color: $white;
     }
@@ -344,13 +384,15 @@ body {
     background-color: $activeBorder;
     color: $white;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       background-color: $white;
       color: $activeBorder;
     }
   }
 
-  &__email, &__createdAt {
+  &__email,
+  &__createdAt {
     font-size: 12px;
     color: $grayText;
   }
@@ -358,7 +400,7 @@ body {
   &__box {
     padding: 10px 0px;
     border-bottom: 1px solid $border;
-    
+
     a {
       text-decoration: none;
     }
@@ -367,7 +409,8 @@ body {
       text-decoration: none;
       padding: 0px 10px;
 
-      &-img, &-icon {
+      &-img,
+      &-icon {
         width: 40px;
         height: 40px;
         border-radius: 50%;
@@ -395,7 +438,8 @@ body {
         &.post__delete {
           background-color: $danger;
 
-          &:hover, &:focus {
+          &:hover,
+          &:focus {
             background-color: $dangerDark;
           }
         }
@@ -407,15 +451,18 @@ body {
             background-color: transparent;
           }
 
-          &:hover, &:focus {
+          &:hover,
+          &:focus {
             background-color: $grayDark;
           }
         }
 
-        &.post__likes, &.post__comments {
+        &.post__likes,
+        &.post__comments {
           @extend .post__flex;
 
-          &:hover, &:focus {
+          &:hover,
+          &:focus {
             color: $gray;
           }
         }
@@ -468,7 +515,8 @@ body {
     color: white;
     background-color: $primaryColor;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       background-color: $activeBorder;
     }
   }
@@ -485,7 +533,8 @@ body {
     text-decoration: none;
     color: $grayText;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       color: gray;
     }
   }
@@ -499,7 +548,8 @@ body {
     background-color: $white;
     color: $activeBorder;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       background-color: $primaryColor;
       color: $white;
     }
@@ -510,7 +560,8 @@ body {
     background-color: black;
     color: $white;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       background-color: $activeBg;
       color: $white;
     }
@@ -540,7 +591,8 @@ body {
     @extend .button;
     background-color: $primaryColor;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       background-color: $activeBorder;
     }
 
@@ -548,7 +600,8 @@ body {
       @extend .button;
       background-color: $gray;
 
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         background-color: $grayDark;
       }
     }
